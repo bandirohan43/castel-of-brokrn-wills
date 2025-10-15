@@ -1,0 +1,78 @@
+[gd_scene load_steps=3 format=3 uid="uid://bultfj8k6m8mv"]
+
+[ext_resource type="Script" uid="uid://bk418wjv236g3" path="res://Scripts/pausemenu.gd" id="1_emv3i"]
+[ext_resource type="AudioStream" uid="uid://c3ej65b4yr2tl" path="res://Assets/sounds/button-press-382713.mp3" id="2_k0w1u"]
+
+[node name="Pause menu" type="CanvasLayer"]
+process_mode = 3
+
+[node name="Pausemenu" type="Control" parent="." groups=["pause_ui"]]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_emv3i")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Pausemenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -310.5
+offset_top = -219.0
+offset_right = 310.5
+offset_bottom = 219.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+
+[node name="Paused" type="Label" parent="Pausemenu/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9882353, 0, 0, 1)
+theme_override_font_sizes/font_size = 75
+text = "PAUSED"
+horizontal_alignment = 1
+
+[node name="Resume" type="Button" parent="Pausemenu/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.77719295, 0.34256995, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0.4402393, 0.94597703, 1)
+theme_override_font_sizes/font_size = 50
+text = "Resume"
+
+[node name="Restart" type="Button" parent="Pausemenu/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.71869206, 0.43365952, 3.85046e-07, 1)
+theme_override_colors/font_hover_color = Color(2.9359758e-06, 0.52384526, 0.32538867, 1)
+theme_override_font_sizes/font_size = 50
+text = "Restart"
+
+[node name="Quit" type="Button" parent="Pausemenu/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.8352941, 0.46666667, 0, 1)
+theme_override_colors/font_hover_color = Color(0.8319403, 0.634025, 1.92523e-06, 1)
+theme_override_font_sizes/font_size = 50
+text = "Main Menu
+"
+
+[node name="button" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_k0w1u")
+bus = &"SFX"
+
+[connection signal="pressed" from="Pausemenu/VBoxContainer/Resume" to="Pausemenu" method="_on_resume_pressed"]
+[connection signal="pressed" from="Pausemenu/VBoxContainer/Restart" to="Pausemenu" method="_on_restart_pressed"]
+[connection signal="pressed" from="Pausemenu/VBoxContainer/Quit" to="Pausemenu" method="_on_quit_pressed"]

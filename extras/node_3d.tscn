@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6o8lfby3ejdt"]
+
+[ext_resource type="PackedScene" uid="uid://d3d0d5bfngcb7" path="res://Assets/Models/maze.glb" id="1_q6e35"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="maze" parent="." instance=ExtResource("1_q6e35")]
+transform = Transform3D(1, 0, 0, 0, 1.7070832, 0, 0, 0, 1, 1.9831909, 0, -0.010514021)

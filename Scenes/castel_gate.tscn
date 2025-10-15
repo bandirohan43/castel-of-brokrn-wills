@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://bak8xwffjyg36"]
+
+[ext_resource type="ArrayMesh" uid="uid://1v1ppla2gwl3" path="res://tres/castelgate.tres" id="1_vfe4a"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_lv2cb"]
+height = 2.310791
+radius = 0.6933594
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_smtup"]
+size = Vector3(0.80874634, 1.3687134, 1.0273438)
+
+[node name="castel-gate" type="StaticBody3D"]
+
+[node name="gate" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_vfe4a")
+
+[node name="piller-1" type="CollisionShape3D" parent="."]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -0.062369347, 8.85498, -34.332836)
+shape = SubResource("CylinderShape3D_lv2cb")
+debug_color = Color(0.32219157, 0.87722886, 0.99999946, 0.41960785)
+
+[node name="piller-2" type="CollisionShape3D" parent="."]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -0.062369347, 8.85498, 34.99397)
+shape = SubResource("CylinderShape3D_lv2cb")
+debug_color = Color(0.32219157, 0.87722886, 0.99999946, 0.41960785)
+
+[node name="wall-1" type="CollisionShape3D" parent="."]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0.002746582, -0.40962505, 15.490282)
+shape = SubResource("BoxShape3D_smtup")
+
+[node name="wall-2" type="CollisionShape3D" parent="."]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0.002746582, -0.40962505, -14.387945)
+shape = SubResource("BoxShape3D_smtup")

@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://cknpm12qagaij"]
+
+[ext_resource type="ArrayMesh" uid="uid://htv3px5xvyoh" path="res://level4/tress/charger.tres" id="1_v046u"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1xnme"]
+
+[node name="StaticBody3D" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(5.813869, 0, 0, 0, 7.1244745, 0, 0, 0, 30.36367, 0, 4.0379, -9.780333)
+shape = SubResource("BoxShape3D_1xnme")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(5.813869, 0, 0, 0, 7.1244745, 0, 0, 0, 30.36367, 2.2878742, 1.9033976, -9.780333)
+shape = SubResource("BoxShape3D_1xnme")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+transform = Transform3D(5.813869, 0, 0, 0, 7.1244745, 0, 0, 0, 30.36367, -2.1442366, 1.9033976, -9.780333)
+shape = SubResource("BoxShape3D_1xnme")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_v046u")

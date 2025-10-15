@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxbo1ox7djste"]
+
+[ext_resource type="PackedScene" uid="uid://dhjfrpq1be4p3" path="res://Assets/Models/5dors.glb" id="1_q6e35"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="5dors" parent="." instance=ExtResource("1_q6e35")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0327984, 0, -0.50107)

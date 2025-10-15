@@ -1,0 +1,29 @@
+[gd_scene load_steps=7 format=3 uid="uid://wliomgt051gl"]
+
+[ext_resource type="Texture2D" uid="uid://ceur5w6serkap" path="res://Assets/Models/castel lvl2_japanese_stone_wall_diff_2k.jpg" id="1_wjf51"]
+[ext_resource type="Texture2D" uid="uid://dog0dn82xfye0" path="res://Assets/Models/castel lvl2_japanese_stone_wall_nor_gl_2k.png" id="2_1fqph"]
+[ext_resource type="Texture2D" uid="uid://5nx0so8xksx8" path="res://Assets/Models/castel lvl2_japanese_stone_wall_rough_2k.png" id="3_ugy24"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1kv48"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m6wij"]
+albedo_texture = ExtResource("1_wjf51")
+roughness_texture = ExtResource("3_ugy24")
+normal_enabled = true
+normal_texture = ExtResource("2_1fqph")
+uv1_triplanar = true
+uv1_triplanar_sharpness = 3.8637896
+uv1_world_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_0h37b"]
+material = SubResource("StandardMaterial3D_m6wij")
+
+[node name="floor" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_1kv48")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_0h37b")

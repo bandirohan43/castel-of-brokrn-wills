@@ -1,0 +1,60 @@
+[gd_scene load_steps=5 format=3 uid="uid://bq0x185xlfwfw"]
+
+[ext_resource type="Script" uid="uid://ts4ofnogks3i" path="res://Scripts/death_pannel.gd" id="1_hkcjg"]
+[ext_resource type="FontFile" uid="uid://dh8lmximosv8o" path="res://Assets/fonts/CinzelDecorative-Regular.otf" id="2_w1pfu"]
+[ext_resource type="FontFile" uid="uid://dvul8jl1ju8nb" path="res://Assets/fonts/Deluna.ttf" id="3_hrvmh"]
+[ext_resource type="AudioStream" uid="uid://c3ej65b4yr2tl" path="res://Assets/sounds/button-press-382713.mp3" id="4_771bu"]
+
+[node name="youdied" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DeathPannel" type="PanelContainer" parent="Control" groups=["death_ui"]]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hkcjg")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/DeathPannel"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="Control/DeathPannel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_w1pfu")
+theme_override_font_sizes/font_size = 64
+text = "YOU DIED!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Respawn" type="Button" parent="Control/DeathPannel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(0, 1, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0.53333336, 0, 1)
+theme_override_fonts/font = ExtResource("3_hrvmh")
+theme_override_font_sizes/font_size = 48
+text = "RESPAWN"
+
+[node name="Mainmenu" type="Button" parent="Control/DeathPannel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(1, 1, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0.43137255, 0, 1)
+theme_override_fonts/font = ExtResource("3_hrvmh")
+theme_override_font_sizes/font_size = 48
+text = "MAIN MENU"
+
+[node name="button" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_771bu")
+bus = &"SFX"

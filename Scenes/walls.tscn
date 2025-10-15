@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2kqqnf5gd5yl"]
+
+[ext_resource type="ArrayMesh" uid="uid://cobix2xq88eft" path="res://tres/walls.tres" id="1_2bj67"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cxhnf"]
+
+[node name="StaticBody3D" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_2bj67")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(190.01675, 0, 0, 0, 88.5093, 0, 0, 0, 15.46301, 0, 14.1655655, 6.8699074)
+shape = SubResource("BoxShape3D_cxhnf")

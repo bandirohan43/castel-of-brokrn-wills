@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://pqvdlpwsel4l"]
+
+[ext_resource type="Script" uid="uid://dl3pd28rknxqx" path="res://Scripts/checkpoint_message.gd" id="1_5uc1m"]
+[ext_resource type="FontFile" uid="uid://dvul8jl1ju8nb" path="res://Assets/fonts/Deluna.ttf" id="1_s8tmq"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="CheckpointMessage" type="Control" parent="." groups=["checkpoint_ui"]]
+visible = false
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
+script = ExtResource("1_5uc1m")
+
+[node name="Label" type="Label" parent="CheckpointMessage"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -266.0
+offset_right = 266.0
+offset_bottom = 63.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(4.3317677e-06, 0.6215952, 0.8003142, 1)
+theme_override_fonts/font = ExtResource("1_s8tmq")
+theme_override_font_sizes/font_size = 64
+text = "CHECKPOINT UPDATED"

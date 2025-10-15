@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxe7ngudoq1ol"]
+
+[ext_resource type="PackedScene" uid="uid://f6e2agpofume" path="res://Assets/Models/castel lvl2.glb" id="1_5j8r0"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="castel lvl2" parent="." instance=ExtResource("1_5j8r0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4645014, 0, -7.5849524)

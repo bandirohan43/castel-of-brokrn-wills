@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=3 uid="uid://dghiabwk6qonn"]
+
+[ext_resource type="Texture2D" uid="uid://crmg4ggg74eyt" path="res://Assets/Textures/floor/granite_tile_diff_2k.png" id="1_jjki3"]
+[ext_resource type="Texture2D" uid="uid://dbs24fhsydbu1" path="res://Assets/Textures/floor/granite_tile_nor_gl_2k.png" id="2_0qqik"]
+[ext_resource type="Texture2D" uid="uid://bxtydsif6y3s4" path="res://Assets/Textures/floor/granite_tile_rough_2k.png" id="3_7rmgm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_darr8"]
+albedo_texture = ExtResource("1_jjki3")
+roughness_texture = ExtResource("3_7rmgm")
+normal_enabled = true
+normal_scale = 5.0
+normal_texture = ExtResource("2_0qqik")
+uv1_scale = Vector3(0.1, 0.1, 0.1)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_cp5wy"]
+material = SubResource("StandardMaterial3D_darr8")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2mae2"]
+
+[node name="floor" type="Node3D"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_cp5wy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_2mae2")

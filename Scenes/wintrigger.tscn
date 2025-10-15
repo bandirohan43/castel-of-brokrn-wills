@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bksv0qr5n84j0"]
+
+[ext_resource type="Script" uid="uid://qesoy6101y82" path="res://Scripts/wintrigger.gd" id="1_o4n34"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2mlfq"]
+
+[node name="wintrigger" type="Area3D"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+script = ExtResource("1_o4n34")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_2mlfq")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

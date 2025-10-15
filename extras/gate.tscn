@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://blqew64125tck"]
+
+[ext_resource type="PackedScene" uid="uid://b5gatno237wwo" path="res://Assets/Models/castelgate.glb" id="1_itbe6"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="castelgate" parent="." instance=ExtResource("1_itbe6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7425021, 0, 0.7578516)

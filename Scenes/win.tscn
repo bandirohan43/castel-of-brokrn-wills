@@ -1,0 +1,62 @@
+[gd_scene load_steps=4 format=3 uid="uid://wy4y024k3vvm"]
+
+[ext_resource type="Script" uid="uid://djec8yqkg3el0" path="res://Scripts/win_ui.gd" id="1_611cj"]
+[ext_resource type="FontFile" uid="uid://b4dmklnmljyym" path="res://Assets/fonts/Cinzel-Black.otf" id="2_g1l0l"]
+[ext_resource type="FontFile" uid="uid://dvul8jl1ju8nb" path="res://Assets/fonts/Deluna.ttf" id="3_3xxyo"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="WinUi" type="Control" parent="." groups=["win_ui"]]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_611cj")
+
+[node name="PanelContainer" type="PanelContainer" parent="WinUi"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="WinUi/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="WinUi/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.74509805, 0.60784316, 0, 1)
+theme_override_fonts/font = ExtResource("2_g1l0l")
+theme_override_font_sizes/font_size = 64
+text = "YOU WON : )"
+
+[node name="Restart" type="Button" parent="WinUi/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0.6862745, 0.35686275, 1)
+theme_override_fonts/font = ExtResource("3_3xxyo")
+theme_override_font_sizes/font_size = 48
+text = "Restart"
+
+[node name="MainMenu" type="Button" parent="WinUi/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.4, 0, 1)
+theme_override_colors/font_hover_color = Color(0.7490196, 0.27450982, 0, 1)
+theme_override_fonts/font = ExtResource("3_3xxyo")
+theme_override_font_sizes/font_size = 48
+text = "Main Menu"
+
+[node name="Quit" type="Button" parent="WinUi/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.88334316, 0, 0.0673074, 1)
+theme_override_colors/font_hover_color = Color(0.96158963, 0.000192523, 0.815599, 1)
+theme_override_fonts/font = ExtResource("3_3xxyo")
+theme_override_font_sizes/font_size = 48
+text = "Quit
+"

@@ -1,0 +1,211 @@
+[gd_scene load_steps=15 format=3 uid="uid://joxj8hbnkxgf"]
+
+[ext_resource type="PackedScene" uid="uid://b0rbnx6n78ylv" path="res://Scenes/main animated.tscn" id="1_ce3w2"]
+[ext_resource type="Script" uid="uid://0f4qkrckru32" path="res://Scripts/menu.gd" id="2_ce3w2"]
+[ext_resource type="FontFile" uid="uid://crtslqwcwqcwm" path="res://Assets/fonts/CinzelDecorative-Bold.ttf" id="3_ce3w2"]
+[ext_resource type="FontFile" uid="uid://dvul8jl1ju8nb" path="res://Assets/fonts/Deluna.ttf" id="3_n45e2"]
+[ext_resource type="AudioStream" uid="uid://c3ej65b4yr2tl" path="res://Assets/sounds/button-press-382713.mp3" id="5_n45e2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_opfnp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cp0ys"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yhxw7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_trj04"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_16hvj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vr1f0"]
+
+[sub_resource type="Animation" id="Animation_5egv6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BackGround/SubViewportContainer/SubViewport/Camera3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(5.676431, 5.654471, -105.02758)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BackGround/SubViewportContainer/SubViewport/Camera3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 3.1415925, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_t1dhk"]
+resource_name = "camera"
+length = 20.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BackGround/SubViewportContainer/SubViewport/Camera3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(5.676431, 5.654471, -105.02758), Vector3(5.676431, 5.654471, 145.06763)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BackGround/SubViewportContainer/SubViewport/Camera3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 3.1415925, 0), Vector3(0, 3.1415925, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vtepg"]
+_data = {
+&"RESET": SubResource("Animation_5egv6"),
+&"camera": SubResource("Animation_t1dhk")
+}
+
+[node name="MainMenu" type="CanvasLayer"]
+
+[node name="BackGround" type="Node3D" parent="."]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="BackGround"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="BackGround/SubViewportContainer"]
+handle_input_locally = false
+msaa_3d = 3
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="BackGround/SubViewportContainer/SubViewport"]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 5.676431, 5.654471, -105.02758)
+
+[node name="MIX" parent="BackGround" instance=ExtResource("1_ce3w2")]
+
+[node name="Control" type="Control" parent="."]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("2_ce3w2")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 80
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Title" type="Label" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(1, 0.654902, 0.2, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 11
+theme_override_constants/shadow_offset_y = 11
+theme_override_constants/outline_size = 11
+theme_override_constants/shadow_outline_size = 11
+theme_override_fonts/font = ExtResource("3_ce3w2")
+theme_override_font_sizes/font_size = 60
+text = "THE CASTEL OF BROKEN WILL'S"
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="StartGame" type="Button" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.4718935, 0.08604703, 1)
+theme_override_colors/font_hover_color = Color(0.82703483, 0.74019146, 0, 1)
+theme_override_fonts/font = ExtResource("3_n45e2")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_opfnp")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_cp0ys")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_yhxw7")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_trj04")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_16hvj")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vr1f0")
+text = "Start Game"
+
+[node name="Options" type="Button" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.4718935, 0.08604703, 1)
+theme_override_colors/font_hover_color = Color(0.82703483, 0.74019146, 0, 1)
+theme_override_fonts/font = ExtResource("3_n45e2")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_opfnp")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_cp0ys")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_yhxw7")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_trj04")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_16hvj")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vr1f0")
+text = "Options"
+
+[node name="Quit" type="Button" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.4718935, 0.08604703, 1)
+theme_override_colors/font_hover_color = Color(0.82703483, 0.74019146, 0, 1)
+theme_override_fonts/font = ExtResource("3_n45e2")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_opfnp")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_cp0ys")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_yhxw7")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_trj04")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_16hvj")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vr1f0")
+text = "Quit"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_vtepg")
+}
+autoplay = "camera"
+speed_scale = 0.5
+
+[node name="button" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_n45e2")
+bus = &"SFX"
+
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/StartGame" to="Control" method="_on_start_game_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/Quit" to="Control" method="_on_quit_pressed"]

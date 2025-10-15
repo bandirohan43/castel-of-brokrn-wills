@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=3 uid="uid://dto3kp4uno4is"]
+
+[ext_resource type="Texture2D" uid="uid://jasscp4uxm10" path="res://Assets/Textures/plaster/painted_plaster_wall_diff_2k.png" id="1_y7wra"]
+[ext_resource type="Texture2D" uid="uid://cny5uurycrjgh" path="res://Assets/Textures/plaster/painted_plaster_wall_nor_gl_2k.png" id="2_jb4ii"]
+[ext_resource type="Texture2D" uid="uid://cc7xt0yi8iqfc" path="res://Assets/Textures/plaster/painted_plaster_wall_rough_2k.png" id="3_nnxow"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u4oqa"]
+albedo_texture = ExtResource("1_y7wra")
+roughness_texture = ExtResource("3_nnxow")
+normal_enabled = true
+normal_scale = 5.0
+normal_texture = ExtResource("2_jb4ii")
+uv1_scale = Vector3(0.1, 0.1, 0.1)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_fnelo"]
+material = SubResource("StandardMaterial3D_u4oqa")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vesgw"]
+
+[node name="platser" type="Node3D"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_fnelo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_vesgw")
